@@ -16,9 +16,9 @@
                 </div>
             </form>   
 
-<?php if(Auth::access('lecturer')): ?>
+<?php if(Auth::access('teacher')): ?>
         <a href="<?=ROOT?>/classes/add">
-        <button class="btn-sm btn btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New</i></button>
+        <button class="btn-sm btn btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New Class</i></button>
         </a>
 <?php endif;?>
 

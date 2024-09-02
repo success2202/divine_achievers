@@ -59,7 +59,7 @@ class User extends Model
         $this->errors['gender'] = "invalid gender";
     }
      //check for rank
-     $ranks = ['student', 'reception', 'lecturer', 'admin', 'superAdmin'];
+     $ranks = ['student', 'reception', 'teacher', 'admin', 'superAdmin'];
      if(empty($DATA['rank']) || !in_array($DATA['rank'], $ranks)){
         $this->errors['rank'] = "please select valid rank";
     }

@@ -15,6 +15,7 @@
                    <input name="find" value="<?=isset($_GET['find'])?$_GET['find']:'';?>" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
             </form>   
+            <!-- somthing mising -->
 
     </nav>
     <!-- including a class table view on the class -->

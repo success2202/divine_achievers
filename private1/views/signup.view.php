@@ -40,7 +40,7 @@
     <option value="">--Select a Rank--</option>
     <option <?=get_select('rank','student')?> value="student">Student</option>
     <option <?=get_select('rank','reception')?> value="reception">Reception</option>
-    <option <?=get_select('rank','teacher')?> value="teacher">Lecturer</option>
+    <option <?=get_select('rank','teacher')?> value="teacher">Teacher</option>
     <option <?=get_select('rank','admin')?> value="admin">Admin</option>
     
     <?php if(Auth::getrank() == 'superAdmin'): ?>
