@@ -18,7 +18,7 @@
         </h5>
         <h5 class="col">Student:
             <a href="<?=ROOT?>/profile/<?=$student_row->user_id?>?tab=tests">
-             <?=$student_row->firstname?><?=$student_row->lastname?>
+             <?=$student_row->firstname?> <?=$student_row->lastname?>
             </a>
         </h5>
     </center>
@@ -51,9 +51,9 @@
           
         </table>
         
-       <br>
+      
     </div>
-    <br>
+   
     <?php
         switch ($page_tab) {
             case 'view':

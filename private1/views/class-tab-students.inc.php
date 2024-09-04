@@ -9,13 +9,13 @@
             </form>  
             <div> 
 
-<?php if(Auth::access('lecturer')):?>   
+<?php if(Auth::access('teacher')):?>   
            <a href="<?=ROOT?>/single_class/studentsadd/<?=$row->class_id?>?select=true">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New $student</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-plus">&nbsp;&nbsp;Add New $student</i></button>
         </a>
 
         <a href="<?=ROOT?>/single_class/studentsremove/<?=$row->class_id?>?select=true">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-minus">&nbsp;&nbsp;Remove student</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-minus">&nbsp;&nbsp;Remove student</i></button>
         </a>
 <?php endif;?>
 

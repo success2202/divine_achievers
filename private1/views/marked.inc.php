@@ -60,7 +60,7 @@
 
         <td>
                 <a href="<?=ROOT?>/marked_singleTest/<?=$test_row->test_id?>/<?=$test_row->user->user_id?>">
-                 <button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i>View</button>
+                 <button class="btn btn-sm btn-primary">View</button>
                  </a>
         </td>
             </tr>

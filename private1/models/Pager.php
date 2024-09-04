@@ -1,3 +1,12 @@
+<style>
+    .page-link {
+        width: 50px !important;
+        padding: 10px !important;
+        box-shadow: 2px 5px 2px;
+    }
+</style>
+
+
 <?php
 // paggination class
 

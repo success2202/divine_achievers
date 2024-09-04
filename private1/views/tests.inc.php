@@ -19,7 +19,7 @@
             <td>
             
                 <a href="<?=ROOT?>/single_test/<?=$test_row->test_id?>">
-                 <button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button>
+                 <button class="btn btn-sm btn-primary"><i>View</i></button>
                  </a>
             
             </td>
@@ -32,7 +32,7 @@
                 <?php
                 //getting the current user or other users in the admin user page 
                     $myid = get_class($this) == "Profile" ? $row->user_id : Auth::getUser_id();
-                    $percentage = get_answer_percentage($test_row->test_id, $myid); 
+                    $percentage = get_answer_percentage($test_row->test_id, $myid);
 
                 ?>
                     <?=$percentage?>%
@@ -40,11 +40,18 @@
 
         <td>
             <?php if(can_take_test($test_row->test_id)):?>
+             <?php if(in_array($test_row->test_id, $submitted)):?>   
+            <a href="<?=ROOT?>/take_test/<?=$test_row->test_id?>">
+                <button class="btn btn-sm btn-primary">Done</button>
+            </a>
+            <?php else:?>
             <a href="<?=ROOT?>/take_test/<?=$test_row->test_id?>">
                 <button class="btn btn-sm btn-primary">Take this test</button>
             </a>
             <?php endif;?>
+            <?php endif;?>
         </td>
+        
             </tr>
         <?php endforeach; ?>
 

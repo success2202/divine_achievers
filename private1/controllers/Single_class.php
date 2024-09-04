@@ -100,7 +100,7 @@ class Single_class extends controller
                       //find lecturer
                       $user = new User();
                       $name = "%".trim($_POST['name'])."%";
-                      $query = "select * from users where (firstname like :fname || lastname like :lname) && rank = 'lecturer' limit 10";
+                      $query = "select * from users where (firstname like :fname || lastname like :lname) && rank = 'teacher' limit 10";
                       $results = $user->query($query, ['fname'=>$name, 'lname'=>$name]);
                     }else{
                       $errors[] = "please type lectueres name";
@@ -193,7 +193,7 @@ class Single_class extends controller
                           //find lecturer
                           $user = new User();
                           $name = "%".trim($_POST['name'])."%";
-                          $query = "select * from users where (firstname like :fname || lastname like :lname) && rank = 'lecturer' limit 10";
+                          $query = "select * from users where (firstname like :fname || lastname like :lname) && rank = 'teacher' limit 10";
                           $results = $user->query($query, ['fname'=>$name, 'lname'=>$name]);
                         }else{
                           $errors[] = "please type lectueres name";

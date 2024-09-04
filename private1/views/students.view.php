@@ -1,23 +1,21 @@
 <?php $this->view('includes/header')?>
 <?php $this->view('includes/nav')?>
 
-<div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
+<div class="container-fluid p-4 shadow mx-auto" style="max-width:1100px;">
 <?php $this->view('includes/crumbs',['crumbs'=>$crumbs])?>
 
   <nav class="navbar navbar-light bg-light">
             <form class="container-inline">
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                <button class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</button>
-                </div>
-
-                <input name="find" value="<?=isset($_GET['find'])?$_GET['find']:'';?>" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-            
+                <input name="find" value="<?=isset($_GET['find'])?$_GET['find']:'';?>" type="text" class="form-control" placeholder="search student" aria-label="Username" aria-describedby="basic-addon1">
+                 <div class="input-group-prepend">
+                      <button class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i>&nbsp</button>
+                    </div>
               </div>
             </form>
           
         <a href="<?=ROOT?>/signup?mode=students">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New Student</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-user-graduate"></i>&nbsp;&nbsp;Add New Student</button>
         </a>
       </nav>
 

@@ -21,7 +21,7 @@
 
         <?php if(Auth::access('teacher')):?>
             <li class="nav-item">
-                <a class="nav-link <?=$page_tab=='lecturers'?'active':'';?>" href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=lecturers">lecturers</a>
+                <a class="nav-link <?=$page_tab=='lecturers'?'active':'';?>" href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=lecturers">Teacher</a>
             </li>
         <?php endif;?>
         

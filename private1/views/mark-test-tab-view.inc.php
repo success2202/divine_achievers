@@ -1,16 +1,35 @@
 
 <!-- get answer percentage function -->
 <?php $percentage = get_answer_percentage($row->test_id, $user_id)?>
+<!-- get marked percentage function -->
 <?php $marked_percentage = get_mark_percentage($row->test_id, $user_id)?>
 
 
 <div class="container-fluid text-center">
-  <div class="text-danger"><?=$percentage?>% Answered</div>
-  <div class="bg-primary" style="width: <?=$percentage?>%; height: 15px;"></div>
- 
-  <!-- get mar percentage function -->
-  <div class="text-danger"><?=$marked_percentage?>% Marked</div>
-  <div class="bg-primary" style="width: <?=$marked_percentage?>%; height: 15px;"></div>
+  <!-- <div class="text-danger"><?=$percentage?>% Answered</div>
+  <div class="bg-primary" style="width: <?=$percentage?>%; height: 15px;"></div> -->
+
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?=$percentage?>%;"><?=$percentage?>% Answered</div>
+</div>
+ <br>
+  <!-- display mark percentage  -->
+   
+  <!-- <div class="text-danger"><?=$marked_percentage?>% Marked</div>
+  <div class="bg-primary" style="width: <?=$marked_percentage?>%; height: 15px;"></div> -->
+
+  <?php if(empty($marked_percentage )):?>
+
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:%;"><?=$marked_percentage ?>% Marked</div>
+
+  <?php else:?>
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?=$marked_percentage?>%;"><?=$marked_percentage ?>% Marked</div>
+  
+  <?php endif;?>
+</div>
+
 
   <?php if($answered_test_row):?>
     <?php if($answered_test_row->submitted && !$marked):?>
@@ -40,10 +59,7 @@
     <nav class="navbar">
 <?php endif;?> 
 
-  <center>
-    <h5>Test Questions</h5>
-    <p><b>Total Questions:</b> #<?=$total_question?></p>
-</center>
+    <span class="bg-secondary p-1 text-white rounded"> <b>Total Questions:</b> #<?=$total_question?> </span>
 
 </nav>
 <hr>
@@ -61,9 +77,11 @@
         $mymark = get_answer_mark($saved_answers, $question->id);
     ?> 
         <div class="card mb-4">
+
         <div class="card-header">
-        <span class="bg-secondary p-1 text-white rounded"> Question: #<?=$num?> </span> <span class="badge btn btn-secondary float-right p-2"> <?=date("F jS, Y H:i:s a",strtotime($question->date))?> </span>
+          <span class="bg-secondary p-1 text-white rounded"> Question: #<?=$num?> </span> <span class="badge btn btn-secondary float-right p-2"> <?=date("F jS, Y H:i:s a",strtotime($question->date))?> </span>
         </div>
+        
         <div class="card-body">
             <h5 class="card-title"><?=esc($question->question)?></h5><hr>
 

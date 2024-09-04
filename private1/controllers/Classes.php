@@ -34,7 +34,7 @@ class Classes extends controller
             $mytable = "class_lecturers";
           }
 
-          $query = "select * from classes where (class_id in (select class_id from $mytable where user_id = :user_id && disabled = 0) && year(date) = :school_year) || user_id = :user_id";
+          $query = "select * from classes where (class_id in (select class_id from $mytable where user_id = :user_id && disabled = 0) && year(date) = :school_year) || user_id = :user_id order by id desc";
           $arr['user_id'] = Auth::getUser_id();
           $arr['school_year'] = !empty($_SESSION['USER']->year) ? $_SESSION['USER']->year : date("Y",time());
          

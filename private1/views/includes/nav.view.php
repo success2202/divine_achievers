@@ -6,7 +6,10 @@
         text-align: center;
         border-left: solid thin #eee;
         border-left: solid thin #fff;
+        font-size: 15px !important;
+        
     }
+
     nav ul li a:hover{
         background-color: grey;
         color: white !important;
@@ -18,12 +21,17 @@
       color: white !important;
     }
 
+     div.hov :hover{
+      background-color: grey;
+      color: white !important;
+    }
 
 </style>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-2">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?=ROOT?>">
-    <img src="<?=ROOT?>/assets/logo1.png" class="" style="width: 70px" alt="">
+    <img src="<?=ROOT?>/assets/logo1.png" class="" style="width: 65px" alt="">
     <?= Auth::getschool_name()?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -36,7 +44,11 @@
         <?php if(Auth::access('superAdmin')):?>
           <li class="nav-item">
             <a class="nav-link <?=$this->controller_name() == 'School' ? 'active-nav' :''?>" href="<?=ROOT?>/schools">SCHOOLS</a>
-          </li> 
+          
+          <!-- </li> 
+          <li class="nav-item">
+          <a class="nav-link" href="#">FEES</a>
+        </li> -->
         <?php endif;?>
 
         <?php if(Auth::access('admin')):?>
@@ -56,7 +68,7 @@
         </li>
 
         <li class="nav-item">
-        <a class="nav-link  <?=$this->controller_name() == 'Tests' ? 'active-nav' :''?>" style="position: relative" href="<?=ROOT?>/tests">TEST
+        <a class="nav-link  <?=$this->controller_name() == 'Tests' ? 'active-nav' :''?>" style="position: relative" href="<?=ROOT?>/tests">TESTS
           <?php
           $unsubmitted_test_count = get_unsubmitted_tests()
           ?>
@@ -65,10 +77,10 @@
           <?php endif;?>
           </a>
         </li>
-
+        
         <?php if(Auth::access('teacher')):?>
           <li class="nav-item">
-            <a class="nav-link <?=$this->controller_name() == 'To_mark' ? 'active-nav' :''?>" style="position: relative" href="<?=ROOT?>/to_mark">UNMARKED
+            <a class="nav-link <?=$this->controller_name() == 'To_mark' ? 'active-nav' :''?>" style="position: relative" href="<?=ROOT?>/to_mark">TO-MARK
               <?php
                //notification count on to_mark test
                 // $test = new Tests_model();
@@ -76,7 +88,7 @@
                 $to_mark_count = (new Tests_model())->get_to_mark_count(); //notification answer test count
               ?>
               <?php if($to_mark_count): ?>
-                <span class="badge bg-danger text-white" style="position: absolute; top: -4px; right:0px"><?=$to_mark_count?></span>
+                <span class="badge bg-danger text-white" style="position: absolute; top: -7px; right:0px"><?=$to_mark_count?></span>
               <?php endif;?>
             </a>
           </li>
@@ -86,15 +98,18 @@
           </li>
         <?php endif;?>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="/signup">SIGNUP</a>
-        </li> -->
         
+        <li class="nav-item">
+        <?php if(Auth::getRank() == 'student'):?>
+          <a class="nav-link" href="#">PAY FEE</a>
+        </li>
+        <?php endif;?>
+
         </ul>
         <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
-           <i class="fa fa-user"></i> <?= Auth::getfirstname()?>
+          <i class="fa fa-user-graduate"></i> <?= Auth::getfirstname()?>
           </a>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a></li>
@@ -118,8 +133,8 @@
             <?php endforeach;?>
         </select>
           <?=add_get_vars()?>
-        <div class="input-group-prepend">
-          <button class="input-group-text" id="basic-addon1"><i class="fa fa-chevron-right"></i>&nbsp</button>
+        <div class="input-group-prepend hov">
+         <button class="input-group-text" id="basic-addon1">Switch Year</button>
         </div>
 
           

@@ -1,17 +1,35 @@
 
+<style>
+  #rcorners2 {
+    box-shadow: 5px 4px 3px lightblue;
+  border-radius: 50%;
+  background: #73AD21;
+  padding: 10px; 
+  width: 55px;
+  height: 60px;
+}
+
+</style>
 <!-- get answer percentage function -->
 <?php $percentage = get_answer_percentage($row->test_id, $user_id)?>
 <?php $marked_percentage = get_mark_percentage($row->test_id, $user_id)?>
 
 
 <div class="container-fluid text-center">
-  <div class="text-danger"><?=$percentage?>% Answered</div>
-  <div class="bg-primary" style="width: <?=$percentage?>%; height: 15px;"></div>
+  <!-- <div class="text-danger"><?=$percentage?>% Answered</div>
+  <div class="bg-primary" style="width: <?=$percentage?>%; height: 15px;"></div> -->
+  
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?=$percentage?>%;"><?=$percentage?>% Answered</div>
+</div>
  
   <!-- get mar percentage function -->
-  <div class="text-danger"><?=$marked_percentage?>% Marked</div>
-  <div class="bg-primary" style="width: <?=$marked_percentage?>%; height: 15px;"></div>
-
+  <!-- <div class="text-danger"><?=$marked_percentage?>% Marked</div>
+  <div class="bg-primary" style="width: <?=$marked_percentage?>%; height: 15px;"></div> -->
+<br>
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?=$marked_percentage?>%;"><?=$marked_percentage ?>% Marked</div>
+</div>
   <?php if($answered_test_row):?>
     <?php if($answered_test_row->submitted && !$marked):?>
 
@@ -33,16 +51,16 @@
 </div>
 
 <?php if($marked): ?>
-  <?php $score_percentage = get_score_percentage($row->test_id, $user_id)?>
+  <?php $score_percentage = get_score_percentage($row->test_id, $user_id)?> <br>
     <center>
-      <small style="font-size: 15px;">Test Score</small> <b style="font-size: 25px;" ><?=$score_percentage?>%</b>
+      <small style="font-size: 15px;">Test Score</small> <b style="font-size: 20px;" id="rcorners2"><?=$score_percentage?>%</b>
     </center>
     <nav class="navbar">
 <?php endif;?> 
 
   <center>
-    <h5>Test Questions</h5>
-    <p><b>Total Questions:</b> #<?=$total_question?></p>
+    
+  <span class="bg-secondary p-1 text-white rounded"> <b>Total Questions:</b> #<?=$total_question?> </span>
 </center>
 
 </nav>

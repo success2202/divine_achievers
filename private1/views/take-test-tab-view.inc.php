@@ -5,8 +5,12 @@
 
 
 <div class="container-fluid text-center">
-  <div class="text-danger"><?=$percentage?>% Answered</div>
+  <!-- <div class="text-danger"><?=$percentage?>% Answered</div>
   <div class="bg-primary" style="width: <?=$percentage?>%; height: 15px;"></div>
+  <br> -->
+  <div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width:<?=$percentage?>%;"><?=$percentage?>% Answered</div>
+</div>
  
   <?php if($answered_test_row):?>
     <?php if($answered_test_row->submitted):?>
@@ -25,9 +29,9 @@
        <?php endif;?> 
 </div>
 <nav class="navbar">
+  
   <center>
-    <h5>Test Questions</h5>
-    <p><b>Total Questions:</b> <?=$total_question?></p>
+  <span class="bg-secondary p-1 text-white rounded"> <b>Total Questions:</b> #<?=$total_question?> </span>
 </center>
 
 </nav>

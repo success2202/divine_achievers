@@ -56,6 +56,7 @@ class Tests extends controller
             'crumbs'=>$crumbs,
             'test_rows'=>$data,
             'unsubmitted'=>get_unsubmitted_tests_row(),
+            'submitted'=>get_submitted_tests_row(),
         ]);
     }
     

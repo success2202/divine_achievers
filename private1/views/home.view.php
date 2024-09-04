@@ -15,7 +15,7 @@
     }
 
     .card{
-        min-width: 250px;
+        min-width: 220px;
     }
 </style>
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">

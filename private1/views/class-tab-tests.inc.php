@@ -8,9 +8,9 @@
                 </div>
             </form>    
            <a href="<?=ROOT?>/single_class/testadd/<?=$row->class_id?>?tab=tests-add">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New test</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-file-signature">&nbsp;&nbsp;Add New test</i></button>
         </a>
-    </nav>
+    </nav> 
 
     <!-- displays the test on the test tab -->
     <table class="table table-striped table-hover">
@@ -36,7 +36,7 @@
             <td><?=get_date($row->date)?></td>
             <td>
                 
-            <?php if(Auth::access('lecturer')): ?>
+            <?php if(Auth::access('teacher')): ?>
                 <a href="<?=ROOT?>/single_class/testedit/<?=$row->class_id?>/<?=$row->test_id?>?tab=tests">
                     <button class="btn-sm btn btn-info text-white"><i class="fa fa-edit"></i></button>
                 </a>

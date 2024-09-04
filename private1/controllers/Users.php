@@ -10,7 +10,7 @@ class Users extends controller
             $this->redirect('login');
         }
         $user = new User();
-       $limit = 3;
+       $limit = 10;
        $pager = new Pager($limit);
        $offset = $pager->offset;
        $school_id = Auth::getschool_id();
@@ -35,6 +35,7 @@ class Users extends controller
                 'crumbs'=>$crumbs,
                 'pager'=>$pager
         ]);
+        
      }else{
         $this->view('access-denied');
         }

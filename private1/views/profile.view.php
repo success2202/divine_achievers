@@ -38,7 +38,7 @@
             </table>
         </div>
     </div>
-    <br>
+   
     <div class="container-fluid">
         <ul class="nav nav-tabs">
             <li class="nav-item">

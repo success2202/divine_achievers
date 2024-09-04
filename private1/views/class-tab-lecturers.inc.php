@@ -9,13 +9,13 @@
             </form>  
             <div> 
 
-<?php if(Auth::access('lecturer')):?>     
+<?php if(Auth::access('teacher')):?>     
            <a href="<?=ROOT?>/single_class/lecturersadd/<?=$row->class_id?>?select=true">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New lecturer</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-plus">&nbsp;&nbsp;Add New Teacher</i></button>
         </a>
        
         <a href="<?=ROOT?>/single_class/lecturersremove/<?=$row->class_id?>?select=true">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-minus">&nbsp;&nbsp;Remove lecturer</i></button>
+          <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-minus">&nbsp;&nbsp;Remove Teacher</i></button>
         </a>
 <?php endif;?>
 
@@ -31,7 +31,7 @@
         ?>
       <?php endforeach;?>
       <?php else:?>  
-        <center><h4>No Lecturers were found in this class</h4></center>
+        <center><h4>No Teacher were found in this class</h4></center>
       <?php endif;?>   
 </div>
 <?php $pager->display(); ?>

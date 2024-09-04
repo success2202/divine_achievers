@@ -13,7 +13,7 @@
         <div class="col-sm-4 col-md-3">
         <img src="<?=$image?>" class=" bg-light d-block border mx-auto" style="width: 150px" alt="">
         <br>
-        <?php if(Auth::access('lecturer') || Auth::i_own_content($row)): ?>
+        <?php if(Auth::access('teacher') || Auth::i_own_content($row)): ?>
         <div class="text-center"> 
         <label for="image_browser" class="btn-sm btn btn-info text-white">
             <input onchange="display_image_name(this.files[0].name)" id="image_browser" type="file" name="image" style="display: none;">
@@ -56,7 +56,7 @@
                 <option <?=get_select('rank',$row->rank)?> value=""><?=ucwords($row->rank)?></option>
                 <option <?=get_select('rank','student')?> value="student">Student</option>
                 <option <?=get_select('rank','reception')?> value="reception">Reception</option>
-                <option <?=get_select('rank','lecturer')?> value="lecturer">Lecturer</option>
+                <option <?=get_select('rank','teacher')?> value="teacher">Teacher</option>
                 <option <?=get_select('rank','admin')?> value="admin">Admin</option>
                 
                 <?php if(Auth::getrank() == 'superAdmin'): ?>

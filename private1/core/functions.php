@@ -358,6 +358,23 @@ function get_unsubmitted_tests_row(){
     
 }
 
+function get_submitted_tests_row(){
+    if(Auth::getRank() == "student"){
+
+        $tests_class = new Tests_model();
+        $query = "select test_id from tests where class_id in (select class_id from class_students where user_id = :user_id) and test_id not in (SELECT test_id FROM answered_test where user_id = :user_id && submitted = 0)";
+        $data = $tests_class->query($query,['user_id'=>Auth::getUser_id()]);
+
+        if($data){
+            return array_column($data, 'test_id');
+        }
+            
+    }
+
+    return [];
+    
+}
+
 function get_years(){
     $arr = array();
     $db = new Database();
