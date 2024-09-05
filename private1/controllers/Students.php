@@ -19,6 +19,11 @@ class Students extends controller
         $query = "select * from users where school_id = :school_id && rank in ('student') order by id desc limit $limit offset $offset";
         $arr['school_id'] = $school_id;
 
+        $query2 = "select * from users where school_id = :school_id && rank in ('student')";
+        $arr2['school_id'] = $school_id;
+        $data2= $user->query($query2,$arr2);
+        
+
         if(isset($_GET['find']))
         {
             $find = '%' . $_GET['find'] . '%';
@@ -33,6 +38,7 @@ class Students extends controller
         if(Auth::access('reception')){ 
           $this->view('students',[
             'rows'=>$data,
+            'row2'=>$data2,
             'crumbs'=>$crumbs,
             'pager'=>$pager
         ]);

@@ -1,8 +1,24 @@
+<style>
+  .words {
+  position: relative;
+  animation: move-words 10s linear;
+  margin: 0;
+  color: grey;
+}
+
+@keyframes move-words {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+</style>
+
 
 <!-- get answer percentage function -->
 <?php $percentage = get_answer_percentage($row->test_id, Auth::getUser_id())?>
-
-
 
 <div class="container-fluid text-center">
   <!-- <div class="text-danger"><?=$percentage?>% Answered</div>
@@ -118,7 +134,7 @@
 <!-- if test is not submited show the save button but if is submitted then remove the save answer button -->
 <?php  if(!$submitted): ?>
 <center>
-  <small>Save your answers before moving to another page</small> <br>
+  <h3 class="words">Save your answers before moving to another page</h3> <br>
   <button class="btn btn-primary">Save Answers</button>
 </center>
 </form>

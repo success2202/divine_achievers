@@ -19,8 +19,10 @@
 </div>
 <?php endif;?>
 <input class="form-control" value="<?=get_var('email')?>" type="email" name="email" placeholder="email" autofocus> <br>
-<input class="form-control" value="<?=get_var('password')?>" type="password" name="password" placeholder="password"> <br>
-<button class="btn btn-primary">Login</button>
+<input class="form-control" value="<?=get_var('password')?>" type="password" id="myInput" name="password" placeholder="password"> 
+<input type="checkbox" onclick="myFunction()"> &nbsp;Show Password  <br>
+
+<center><button class="btn btn-primary">Login</button> </center>
 
 <!-- <a  href="<?=ROOT?>/signup">
 <button class="btn btn-info float-right">Sign-Up</button>
@@ -28,5 +30,17 @@
 </div>
 </form>
     </div>
+
+  <script>
+
+  function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script> 
     
     <?php $this->view('includes/footer') ?>

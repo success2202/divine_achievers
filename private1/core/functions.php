@@ -426,6 +426,30 @@ function add_get_vars(){
     return $text;
 }
 
+// function get_class_student_count()
+// {
+   
+    
+//     if(Auth::access('teacher')){ 
+//        //nested querry
+//        $student_count = new Students_model();
+//        //$classes = new CLasses_model();
+//       // $query = "select * from class_students where class_id = :class_id && disabled = 0 ";
+//        $query ="SELECT class_id FROM class_students where class_id in (SELECT class_id FROM classes)";
+       
+//        $data =  $student_count->query($query,['class_id'=>Auth::getClass_id()]);
+       
+        
+//    } 
+  
+//     if($data ){
+//         return count($data ); 
+//     }else{
+//         return 0; 
+//     }
+// }
+
+
 // switch_year();
 // function switch_year(){
 //     if(!isset($_SESSION['USER']))

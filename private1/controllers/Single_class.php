@@ -22,7 +22,7 @@ class Single_class extends controller
             
         }
 
-        $limit = 3;
+        $limit = 10;
         $pager = new Pager($limit);
         $offset = $pager->offset;
 
@@ -45,6 +45,10 @@ class Single_class extends controller
             $students = $lect->query($query,['class_id'=>$id]);
             $data['students'] = $students;
 
+            $query2 = "select * from class_students where class_id = :class_id && disabled = 0 ";
+            $studentAll = $lect->query($query2,['class_id'=>$id]);
+            $data['studentAll'] = $studentAll;
+
           }else
           if($page_tab == 'tests'){
             //display test
@@ -55,13 +59,25 @@ class Single_class extends controller
 
           }
 
-
+        //   if( $page_tab == 'students'){ 
+        //     //nested querry
+        //     $student_count = new Students_model();
+        //     //$classes = new CLasses_model();
+        //    // $query = "select * from class_students where class_id = :class_id && disabled = 0 ";
+        //     $query ="SELECT class_id FROM class_students where class_id in (SELECT class_id FROM classes)";
+            
+        //     $data['student_class_count'] =  $student_count->query($query,['class_id'=>Auth::getClass_id()]);
+            
+             
+        // } 
+       
             $data['row']      = $row;
             $data['crumbs']   = $crumbs;
             $data['page_tab'] = $page_tab;
             $data['results']  = $results;
             $data['errors']  = $errors;
             $data['pager']  = $pager;
+            //$data['student_class_count']  = $student_class_count;
 
             $this->view('single-class',$data);
 
@@ -497,6 +513,7 @@ public function testedit($id = '', $test_id = '')
             $data['results']  = $results;
             $data['errors']  = $errors;
             
+            
             $this->view('single-class',$data);
           }
     
@@ -552,7 +569,8 @@ public function testdelete($id = '', $test_id = '')
         
         $this->view('single-class',$data);
       }
-        
+       
+      
    }
 
 

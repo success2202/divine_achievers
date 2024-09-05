@@ -26,7 +26,7 @@
             <?php endif;?>
             <?php  $active = $test_row->disabled ? "No":"Yes"; ?>
             <td><?=$test_row->test?></td> <td><?=$test_row->user->firstname?>  <?=$test_row->user->lastname?> </td> <td><?=$active?></td> <td><?=get_date($test_row->date)?></td> 
-        
+              
           <td>
             <!-- disaplaying student answer % -->
                 <?php
@@ -37,20 +37,23 @@
                 ?>
                     <?=$percentage?>%
           </td>  
-
+          <?php if(Auth::getRank() =='student'):?>
         <td>
-            <?php if(can_take_test($test_row->test_id)):?>
-             <?php if(in_array($test_row->test_id, $submitted)):?>   
-            <a href="<?=ROOT?>/take_test/<?=$test_row->test_id?>">
-                <button class="btn btn-sm btn-primary">Done</button>
-            </a>
-            <?php else:?>
-            <a href="<?=ROOT?>/take_test/<?=$test_row->test_id?>">
+            <?php if(can_take_test($test_row->test_id) && in_array($test_row->test_id, $unsubmitted) || !in_array($test_row->test_id, $submitted)):?>
+                <a href="<?=ROOT?>/take_test/<?=$test_row->test_id?>">
                 <button class="btn btn-sm btn-primary">Take this test</button>
             </a>
             <?php endif;?>
+            
+                <?php if(can_take_test($test_row->test_id) && !in_array($test_row->test_id, $unsubmitted) && in_array($test_row->test_id, $submitted )):?>   
+            
+                <button class="btn btn-sm btn-primary">Done</button>
+          
+            
             <?php endif;?>
+           
         </td>
+        <?php endif;?>
         
             </tr>
         <?php endforeach; ?>

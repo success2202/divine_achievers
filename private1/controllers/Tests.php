@@ -18,6 +18,13 @@ class Tests extends controller
              $arr['school_id'] = $school_id;
              $arr['school_year'] = !empty($_SESSION['USER']->year) ? $_SESSION['USER']->year : date("Y",time());
 
+            //total number of test in the test view for admin
+            $query2 = "select * from tests where school_id = :school_id && year(date) = :school_year";
+            $arr2['school_id'] = $school_id;
+            $arr2['school_year'] = !empty($_SESSION['USER']->year) ? $_SESSION['USER']->year : date("Y",time());
+            $data2= $tests->query($query2,$arr2);
+
+
              if(isset($_GET['find']))
         {
             $find = '%' . $_GET['find'] . '%';
@@ -25,7 +32,6 @@ class Tests extends controller
             $arr['find'] = $find; 
         }
             $data = $tests->query($query,$arr);
-
              
          }else{
             //$test = new Tests_model();
@@ -33,12 +39,19 @@ class Tests extends controller
             $mytable = "class_students";
           if(Auth::getRank() == 'teacher'){
             $mytable = "class_lecturers";
-            $disabled = "";
+            $disabled = "disabled = 0 &&";
           }
           $query = "select * from tests where $disabled class_id in (select class_id from $mytable where user_id = :user_id && disabled = 0) && year(date) = :school_year order by id desc";
           $arr['user_id'] = Auth::getUser_id();
           $arr['school_year'] = !empty($_SESSION['USER']->year) ? $_SESSION['USER']->year : date("Y",time());
-         
+
+        //getting test numbers for teachers and students
+          $query2 = "select * from tests where $disabled class_id in (select class_id from $mytable where user_id = :user_id && disabled = 0) && year(date) = :school_year";
+          $arr2['user_id'] = Auth::getUser_id();
+          $arr2['school_year'] = !empty($_SESSION['USER']->year) ? $_SESSION['USER']->year : date("Y",time());
+          $data2 = $tests->query($query2,$arr2);
+
+          //this is for search
             if(isset($_GET['find']))
             {
                 $find = '%' . $_GET['find'] . '%';
@@ -55,6 +68,8 @@ class Tests extends controller
           $this->view('tests',[
             'crumbs'=>$crumbs,
             'test_rows'=>$data,
+            'test_row2'=>$data2,
+          
             'unsubmitted'=>get_unsubmitted_tests_row(),
             'submitted'=>get_submitted_tests_row(),
         ]);

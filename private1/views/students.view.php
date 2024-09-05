@@ -13,6 +13,7 @@
                     </div>
               </div>
             </form>
+            <i style="color:grey;"><b>NUMBER OF STUDENTS</b> <i class="btn btn-sm btn-primary mx-auto" style="border-radius: 10px 10px; height: 30px; box-shadow: 5px 5px 5px grey;"><b><?= $row2 ? count($row2):''?></b></i> </i>
           
         <a href="<?=ROOT?>/signup?mode=students">
           <button class="btn btn-sm btn-primary" style="border-radius: 10px 10px;  box-shadow: 5px 5px 5px grey;"><i class="fa fa-user-graduate"></i>&nbsp;&nbsp;Add New Student</button>
