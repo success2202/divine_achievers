@@ -15,6 +15,8 @@
     
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/all.min.css">
+
+    
     
 </head>
 <body>
@@ -23,6 +25,9 @@
        a{
       text-decoration: none;
     }
-    </style>
 
-<div style="min-width:350px;">    
+
+    </style>
+   
+
+<div  style="min-width:350px;">    

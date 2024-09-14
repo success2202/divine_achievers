@@ -4,9 +4,10 @@
     <div class="container-fluid">
        <form action="" method="Post">
    <div class="p-4 mx-auto shadow rounded" style="margin-top: 50px; width: 100%; max-width: 310px;">
-   <h2 class="text-center">DIVINE ACHIEVERS </h2>
+   <h4 class="text-center">DIVINE ACHIEVERS </h4>
    <img src="<?=ROOT?>/assets/logo1.png" class=" border border-primary d-block mx-auto rounded-circle" style="width: 100px" alt="">
-   <h3>Login</h3>
+   
+   <h3 class="text-center">Login</h3>
    <?php if(count($errors)>0):?>
    <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Error!</strong>
@@ -20,9 +21,9 @@
 <?php endif;?>
 <input class="form-control" value="<?=get_var('email')?>" type="email" name="email" placeholder="email" autofocus> <br>
 <input class="form-control" value="<?=get_var('password')?>" type="password" id="myInput" name="password" placeholder="password"> 
-<input type="checkbox" onclick="myFunction()"> &nbsp;Show Password  <br>
+<input type="checkbox" onclick="myFunction()"> &nbsp;Show Password  <br> <br>
 
-<center><button class="btn btn-primary">Login</button> </center>
+<center> <button class="btn btn-primary">Login</button> </center>
 
 <!-- <a  href="<?=ROOT?>/signup">
 <button class="btn btn-info float-right">Sign-Up</button>
