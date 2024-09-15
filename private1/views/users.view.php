@@ -12,7 +12,10 @@
                     </div>
                    <input name="find" value="<?=isset($_GET['find'])?$_GET['find']:'';?>" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-            </form>    
+            </form>   
+            
+            <i style="color:grey;"><b>NUMBER OF STUDENTS</b> <i class="btn btn-sm btn-primary mx-auto" style="border-radius: 10px 10px; height: 30px; box-shadow: 5px 5px 5px grey;"><b><?= $row2 ? count($row2):''?></b></i> </i>
+
            <a href="<?=ROOT?>/signup">
           <button class="btn btn-sm btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Add New Staff</i></button>
         </a>

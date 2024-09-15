@@ -16,7 +16,11 @@
         color: white !important;
        
     }
-
+   .drop li a:hover{
+        background-color: grey;
+        color: white !important;
+       
+    }
     .active-nav{
       background-color: #007bff;
       color: white !important;
@@ -112,7 +116,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-user-graduate"></i> <?= Auth::getfirstname()?>
           </a>
-          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-right drop" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a></li>
             <li><a class="dropdown-item" href="<?=ROOT?>">Dashboard</a></li>
             <li><hr class="dropdown-divider"></li> 
